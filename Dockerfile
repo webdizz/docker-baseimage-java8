@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.12
+FROM phusion/baseimage:0.9.16
 
 MAINTAINER Izzet Mustafaiev "izzet@mustafaiev.com"
 
@@ -13,7 +13,7 @@ RUN	locale-gen en_US.UTF-8
 
 RUN apt-get -y update \
 	&& apt-get -y install software-properties-common python-software-properties \
-    && add-apt-repository ppa:webupd8team/java \
+	&& add-apt-repository ppa:webupd8team/java \
 	&& apt-get clean
 
 RUN apt-get -y update \
@@ -21,5 +21,8 @@ RUN apt-get -y update \
     && apt-get -y install oracle-java8-installer \
     && apt-get clean \
     && update-alternatives --display java
+
+RUN apt-get -y install maven \
+    && apt-get clean
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
