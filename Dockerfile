@@ -22,7 +22,6 @@ RUN apt-get -y update \
   && rm -rf /build \
   && rm -rf /tmp/* /var/tmp/* \
   && rm -rf /var/lib/apt/lists/* \
-  && apt-get remove -y --purge libpython-stdlib libpython2.7-minimal libpython2.7-stdlib python-apt python-minimal python-pycurl python2.7 python  \
-  gsfonts gsfonts-x11 libfontenc1 libxfont1 xfonts-encodings xfonts-utils python-software-properties
+  && apt-get remove -y x11-common software-properties-common python-software-properties python3-software-properties
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
